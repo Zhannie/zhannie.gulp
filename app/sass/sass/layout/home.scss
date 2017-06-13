@@ -1,0 +1,31 @@
+div.home {
+	position: relative;
+	height: 100vh;
+	@extend %fullwidth;
+	background: $homeBg no-repeat center center fixed;
+	background-size: cover;
+	text-align: center;
+	h1{
+		position: absolute;
+		top: 40%;
+		left: 15%;
+		right: 15%;
+		color: white;
+		text-shadow: black 0 0 3px;
+		@include fontpar (80px, 400);
+		span {
+			display: block;
+			padding-top:15px; 
+			font-size: 20px;
+			text-transform: uppercase;
+			letter-spacing: .5px;
+		}
+	}
+	&:before {
+		content: "";
+		@extend %abspos;
+		@extend %fullwidthheight;
+		background-color: darkslateblue;
+		opacity: .4;
+	}
+}

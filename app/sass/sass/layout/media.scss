@@ -1,0 +1,85 @@
+//tablet
+
+@media #{$mediat} {
+	#works h2 {
+		padding: 50px 30px 50px 5px;
+		font-size: 35px;
+	}
+	div.works {
+		height: 50vh;
+			p {
+				font-size: 20px;
+			}
+	}
+	h3{
+		margin-top: 10%;
+	}
+	.left p:before {
+		border-right: 315px solid rgba(174,169,201, .3);
+	}
+	.right p:before{
+		top: -85px;
+		border-left: 310px solid rgba(174,169,201, .3);
+		z-index: -10;
+	}
+}
+
+
+
+//mobile
+@media #{$mediam} {
+	nav {
+		padding-right: 20px;
+	}
+	.navpic {
+		max-height: 90px;
+		padding: 20px;
+	}
+	
+	.left, .right {
+		float: none;
+		width: 100%;
+		text-align: center;
+	}	
+	#works h2 {
+		padding: 40px 10px;
+		text-align: left;
+		@include fontpar (30px, 600);
+	}
+	div.works {
+		display: block;
+		height: 60vh;
+		margin: 50px auto 20px;
+			img.mob {
+				margin: 0px 0px -15px -70px; 
+			}
+			p {
+				text-align: center;
+			}
+	}
+
+	div.full {
+		display: none;
+	}
+	
+	h3 {
+		margin-top: 5%;
+		text-align: center;
+	}
+	.left p:before{
+		display: none;
+	}
+	.right p:before{
+		display: none;
+	}
+	
+	.left:not(.limg), .left:not(.limg) p{
+		text-align: center;
+	}
+	.limg, .rimg {
+		clear: both;
+		text-align: center;
+	}
+}
+
+	
