@@ -43,8 +43,12 @@ var gulp = require('gulp'),
 	.pipe(gulp.dest('app/mimgs'));
 	});
 
+	gulp.task('build', ['img'], ['sass'], ['script'], function() {
 
-	gulp.task('deploy', function() {
+	});
+
+
+	gulp.task('deploy', ['build'], function() {
 		return gulp.src('.dist/**/*')
 		.pipe(deploy())
 	});
