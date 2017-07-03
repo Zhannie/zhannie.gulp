@@ -1,5 +1,5 @@
-var gulp = require('gulp'),
-	deploy = require('gulp-gh-pages')
+var gulp        = require('gulp'),
+	deploy      = require('gulp-gh-pages')
 	sass        = require('gulp-sass'),
 	concat      = require('gulp-concat'),
 	uglify      = require('gulp-uglifyjs'),
@@ -43,12 +43,12 @@ var gulp = require('gulp'),
 	.pipe(gulp.dest('app/mimgs'));
 	});
 
-	gulp.task('build', ['img'], ['sass'], ['script'], function() {
+	gulp.task('build', , function() {
 
 	});
 
 
-	gulp.task('deploy', ['build'], function() {
+	gulp.task('deploy', ['img'], ['sass'], ['script'], function() {
 		return gulp.src('.dist/**/*')
 		.pipe(deploy())
 	});
