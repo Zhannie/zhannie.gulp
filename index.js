@@ -47,7 +47,6 @@ var gulp        = require('gulp'),
 
 	});
 
-
 	gulp.task('deploy', ['img'], ['sass'], ['script'], function() {
 		return gulp.src('.dist/**/*')
 		.pipe(deploy())
