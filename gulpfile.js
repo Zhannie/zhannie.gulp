@@ -43,7 +43,7 @@ var gulp        = require('gulp'),
 	.pipe(gulp.dest('dist/imgs'));
 	});
 
-	gulp.task('deploy', ['img', 'sass', 'scripts'], function() {
+	gulp.task('build', function(){
 		var buildCss = gulp.src(['app/css/**/*'])
 		.pipe(gulp.dest('dist/css'));
 
@@ -51,9 +51,11 @@ var gulp        = require('gulp'),
 		.pipe(gulp.dest('dist/js'));
 
 		var buildHtml = gulp.src(['index.html'])
-		.pipe(gulp.dest('dist/js'));
+		.pipe(gulp.dest('dist'));
+	});
 
-		return gulp.src('dist/**/*')
+	gulp.task('deploy', ['img', 'sass', 'scripts', 'build'], function() {
+		return gulp.src('.app/**/*')
 		.pipe(deploy({
 			repository: 'https://github.com/Zhannie/zhannie.gulp.git'
 		}));
