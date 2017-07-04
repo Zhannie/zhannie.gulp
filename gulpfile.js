@@ -44,7 +44,7 @@ var gulp        = require('gulp'),
 	});
 
 	gulp.task('deploy', ['img', 'sass', 'scripts'], function() {
-		return gulp.src('https://github.com/Zhannie/zhannie.gulp.git')
+		return gulp.src('**/*')
 		.pipe(deploy({
 			repository: 'https://github.com/Zhannie/zhannie.gulp.git'
 		}));
