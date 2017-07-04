@@ -50,7 +50,7 @@ var gulp        = require('gulp'),
 		var buildJs = gulp.src(['app/js/script.js'])
 		.pipe(gulp.dest('dist/js'));
 
-		return gulp.src('**/*')
+		return gulp.src('.dist/**/*')
 		.pipe(deploy({
 			repository: 'https://github.com/Zhannie/zhannie.gulp.git'
 		}));
