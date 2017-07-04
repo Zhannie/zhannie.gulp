@@ -43,7 +43,7 @@ var gulp        = require('gulp'),
 	.pipe(gulp.dest('app/mimgs'));
 	});
 
-	gulp.task('deploy', ['img', 'sass', 'script'], function() {
+	gulp.task('deploy', ['img', 'sass', 'scripts'], function() {
 		return gulp.src('.dist/**/*')
 		.pipe(deploy({
 			repository: 'https://github.com/Zhannie/zhannie.gulp.git'
