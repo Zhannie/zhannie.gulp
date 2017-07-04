@@ -44,13 +44,13 @@ var gulp        = require('gulp'),
 	});
 
 	gulp.task('deploy', ['img', 'sass', 'scripts'], function() {
-		var buildCss = gulp.src(['app/css/*'])
+		var buildCss = gulp.src(['app/css/**/*'])
 		.pipe(gulp.dest('dist/css'));
 
 		var buildJs = gulp.src(['app/js/script.js'])
 		.pipe(gulp.dest('dist/js'));
 
-		return gulp.src('dist/**/*')
+		return gulp.src('**/*')
 		.pipe(deploy({
 			repository: 'https://github.com/Zhannie/zhannie.gulp.git'
 		}));
