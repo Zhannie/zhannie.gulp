@@ -7,3 +7,12 @@ $(function() {
 			$("header").stop().animate({'backgroundColor':'rgba(174,169,201, .6)', 'height':'80px'}, 'slow'); 
 	});
 });
+
+
+	$(document).ready(function() {
+		setTimeout(function() {
+			if (! $(".preloader").hasClass("done")) {
+				$(".preloader").addClass("done");
+			}
+		},1000);
+	});

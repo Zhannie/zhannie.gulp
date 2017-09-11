@@ -9,8 +9,7 @@ var gulp        = require('gulp'),
 	imagemin    = require('gulp-imagemin'),
 	pngquant    = require('imagemin-pngquant'),
 	cache       = require('gulp-cache'),
-	autoprefixer= require('gulp-autoprefixer'),
-	runSequence = require('run-sequence');
+	autoprefixer= require('gulp-autoprefixer');
 
 	gulp.task('sass', function() {
 	return gulp.src('app/sass/input.scss')
@@ -33,7 +32,7 @@ var gulp        = require('gulp'),
 	return cache.clearAll();
 	});
 
-	gulp.task('img', function() {
+	gulp.task('img', ['clear'], function() {
 	return gulp.src('app/imgs/**/*')
 	.pipe(cache(imagemin({
 		interlaced: true,
@@ -44,10 +43,7 @@ var gulp        = require('gulp'),
 	.pipe(gulp.dest('dist/imgs'));
 	});
 
-	gulp.task('build', function(){
-		runSequence('clear',
-			['img', 'sass', 'scripts'],
-
+	gulp.task('build', ['img', 'sass', 'scripts'], function(){
 		var buildCss = gulp.src(['app/css/**/*'])
 		.pipe(gulp.dest('dist/css'));
 
@@ -56,7 +52,7 @@ var gulp        = require('gulp'),
 
 		var buildHtml = gulp.src(['index.html'])
 		.pipe(gulp.dest('dist'));
-		)
+		
 	});
 
 	gulp.task('deploy', ['build'], function() {
