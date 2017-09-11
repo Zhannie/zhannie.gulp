@@ -9,7 +9,8 @@ var gulp        = require('gulp'),
 	imagemin    = require('gulp-imagemin'),
 	pngquant    = require('imagemin-pngquant'),
 	cache       = require('gulp-cache'),
-	autoprefixer= require('gulp-autoprefixer');
+	autoprefixer= require('gulp-autoprefixer'),
+	runSequence = require('run-sequence');
 
 	gulp.task('sass', function() {
 	return gulp.src('app/sass/input.scss')
@@ -44,6 +45,9 @@ var gulp        = require('gulp'),
 	});
 
 	gulp.task('build', function(){
+		runSequence('clear',
+			['img', 'sass', 'scripts'],
+
 		var buildCss = gulp.src(['app/css/**/*'])
 		.pipe(gulp.dest('dist/css'));
 
@@ -52,9 +56,10 @@ var gulp        = require('gulp'),
 
 		var buildHtml = gulp.src(['index.html'])
 		.pipe(gulp.dest('dist'));
+		)
 	});
 
-	gulp.task('deploy', ['img', 'sass', 'scripts', 'build'], function() {
+	gulp.task('deploy', ['build'], function() {
 		return gulp.src('dist/**/*')
 		.pipe(deploy({
 			repository: 'https://github.com/Zhannie/zhannie.gulp.git'
